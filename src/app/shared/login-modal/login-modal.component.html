@@ -1,0 +1,81 @@
+<dialog #dialog aria-labelledby="loginModalTitle" (cancel)="close()">
+  <div class="login-card">
+    <button class="modal-close" type="button" aria-label="Close login form" (click)="close()">×</button>
+    <div class="modal-views">
+      <section class="modal-view" [class.is-active]="view() === 'login'" [attr.aria-hidden]="view() !== 'login'"
+        aria-labelledby="loginModalTitle">
+        <p class="modal-kicker">LISTENPAY PORTAL ACCESS</p>
+        <h2 id="loginModalTitle">Sign in to {{ workspace() }}.</h2>
+        <p class="modal-copy">Use your organization access details to continue to {{ workspace() }}.</p>
+        <form class="login-form" novalidate (submit)="submitLogin($event)">
+          <div class="field">
+            <label for="lmWorkEmail">Work email</label>
+            <input #emailInput id="lmWorkEmail" type="email" autocomplete="email" placeholder="you@organization.com"
+              aria-describedby="lmWorkEmailError" required [class.has-error]="!!emailError()"
+              [attr.aria-invalid]="!!emailError()" [disabled]="busy() || step() !== 'email'"
+              (input)="onEmailInput(emailInput.value)" (blur)="onEmailBlur()" />
+            <p class="field-error" id="lmWorkEmailError" aria-live="polite">{{ emailError() }}</p>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="lmRole">Access role</label>
+              <select id="lmRole" disabled>
+                <option value="administrator">Administrator</option>
+                <option value="program-lead">Program lead</option>
+                <option value="manager">Manager</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="lmAccessCode">Access code</label>
+              <input #codeInput id="lmAccessCode" type="text" inputmode="numeric" autocomplete="one-time-code"
+                placeholder="Enter 6 digits" maxlength="6" pattern="[0-9]{6}" aria-describedby="lmAccessCodeError"
+                [class.has-error]="!!codeError()" [attr.aria-invalid]="!!codeError()" [disabled]="step() !== 'code'"
+                (input)="onCodeInput(codeInput)" (blur)="onCodeBlur()" />
+              <p class="field-error" id="lmAccessCodeError" aria-live="polite">{{ codeError() }}</p>
+            </div>
+          </div>
+          <label class="remember">
+            <input type="checkbox" required [checked]="policyAccepted" [disabled]="busy() || step() !== 'email'"
+              (change)="policyAccepted = $any($event.target).checked" />
+            I understand this is an authorized workspace and agree to follow my organization’s policies.
+          </label>
+          <p class="login-status" role="status">
+            @if (step() === 'verifying') {<span class="button-spinner" aria-hidden="true"></span>}
+            {{ status() }}
+          </p>
+          @if (step() === 'email') {
+            <button class="login-submit" type="submit" [disabled]="busy()">
+              @if (busy()) {<span class="button-spinner" aria-hidden="true"></span>}
+              <span>{{ busy() ? 'PLEASE WAIT...' : 'CONTINUE TO WORKSPACE →' }}</span>
+            </button>
+          }
+          <button class="forgot-link" type="button" (click)="showView('recovery')">Forgot Password?</button>
+          <p class="login-note"><strong>Demo access form.</strong> Connect this form to your organization’s SSO or
+            identity provider before production use.</p>
+        </form>
+      </section>
+
+      <section class="modal-view recovery-view" [class.is-active]="view() === 'recovery'"
+        [attr.aria-hidden]="view() !== 'recovery'" aria-labelledby="loginModalRecoveryTitle">
+        <p class="modal-kicker">ACCOUNT RECOVERY</p>
+        <h2 id="loginModalRecoveryTitle">Reset your access.</h2>
+        <p class="modal-copy">Enter your work email and we will show the next recovery step for this demo portal.</p>
+        <form class="login-form" novalidate (submit)="submitRecovery($event)">
+          <div class="field">
+            <label for="lmRecoveryEmail">Work email</label>
+            <input #recoveryInput id="lmRecoveryEmail" type="email" autocomplete="email"
+              placeholder="you@organization.com" aria-describedby="lmRecoveryEmailError" required
+              [class.has-error]="!!recoveryError()" [attr.aria-invalid]="!!recoveryError()"
+              (input)="onRecoveryInput(recoveryInput.value)" />
+            <p class="field-error" id="lmRecoveryEmailError" aria-live="polite">{{ recoveryError() }}</p>
+          </div>
+          <p class="recovery-status" role="status">{{ recoveryStatus() }}</p>
+          <button class="login-submit" type="submit">SEND RECOVERY INSTRUCTIONS →</button>
+          <button class="forgot-link" type="button" (click)="showView('login')">← Back to Login</button>
+          <p class="login-note"><strong>Demo recovery.</strong> Connect this step to your identity provider or secure
+            email service before production use.</p>
+        </form>
+      </section>
+    </div>
+  </div>
+</dialog>

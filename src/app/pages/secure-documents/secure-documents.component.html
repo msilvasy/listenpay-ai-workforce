@@ -1,0 +1,92 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="brand" aria-label="ListenPay">
+      <a href="/workspace"><img src="/tiles/logo.png" width="150" /></a>
+    </div>
+    <div class="top-actions">
+      <button class="back-link" id="backToWorkspace" type="button">← Back to workspace</button>
+    </div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="pageTitle">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Secure Documents</p>
+      <h1 id="pageTitle">Review &amp; sign your<br /><em>workforce documents.</em></h1>
+      <p>Open a document, review its secure signature field, and apply your electronic signature to confirm your
+        organization's program enrollment.</p>
+    </section>
+
+    <section class="documents-layout">
+      <aside class="documents-sidebar" aria-label="Document list">
+        <h2 class="sidebar-title">Documents</h2>
+        <div id="documentList" class="document-list"></div>
+        <p class="sidebar-note"><strong>Demo module.</strong> Connect this workflow to a certified e-signature
+          provider (for example DocuSign or Adobe Acrobat Sign) before production use.</p>
+      </aside>
+
+      <section class="signing-area">
+        <div id="signingEmptyState" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">🔒</span>
+          <p>Select a document from the list to review it and apply your secure electronic signature.</p>
+        </div>
+
+        <div id="signingPanel" class="signing-panel" hidden>
+          <div class="signing-panel-header">
+            <div>
+              <h2 id="signingDocTitle">Document title</h2>
+              <p id="signingDocDescription" class="signing-doc-description">Document description</p>
+            </div>
+            <a id="downloadOriginal" class="ghost-button" href="#" download>Download original</a>
+          </div>
+
+          <div class="document-preview">
+            <iframe id="documentFrame" title="Document preview" src=""></iframe>
+          </div>
+
+          <div id="signedBanner" class="signed-banner" hidden>
+            <span class="signed-icon" aria-hidden="true">✓</span>
+            <div>
+              <p class="signed-title">Document signed</p>
+              <p id="signedMeta" class="signed-meta"></p>
+            </div>
+            <button id="downloadCertificate" class="ghost-button" type="button">Download signature certificate</button>
+          </div>
+
+          <div class="signature-section" aria-labelledby="signatureSectionTitle">
+            <h3 id="signatureSectionTitle">Secure electronic signature</h3>
+
+            <div class="field">
+              <label for="typedSignatureName">Full legal name</label>
+              <input id="typedSignatureName" type="text" autocomplete="name" placeholder="Jordan Avery" />
+            </div>
+
+            <div class="signature-tabs" role="tablist" aria-label="Signature style">
+              <button id="useDrawTab" class="tab is-active" type="button" role="tab" aria-selected="true">Draw
+                signature</button>
+              <button id="useTypeTab" class="tab" type="button" role="tab" aria-selected="false">Use typed
+                signature</button>
+            </div>
+
+            <div id="drawSignaturePanel" class="signature-pad-wrap">
+              <canvas id="signaturePad" class="signature-pad" aria-label="Draw your signature here"></canvas>
+              <button id="clearSignature" class="ghost-button small" type="button">Clear</button>
+            </div>
+
+            <div id="typeSignaturePanel" class="typed-signature-wrap" hidden>
+              <p class="typed-signature-preview" id="typedSignaturePreview">Your signature</p>
+              <p class="field-hint">Your typed name above will be rendered as your signature.</p>
+            </div>
+
+            <label class="agreement">
+              <input id="signatureAgreement" type="checkbox" />
+              I understand this is a secure electronic signature and agree it is legally binding for the purpose of
+              this demonstration.
+            </label>
+
+            <p id="signStatus" class="sign-status" role="status"></p>
+            <button id="signDocumentButton" class="sign-button" type="button" disabled>Sign &amp; submit document</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>

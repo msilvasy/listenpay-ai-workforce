@@ -1,0 +1,106 @@
+<div class="shell">
+  <header>
+    <a class="brand" href="/" aria-label="ListenPay portal home">
+      <!-- <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>ListenPay<sup>®</sup> -->
+      <img src="/logo.png" style="width: 35%;">
+    </a>
+    <div class="top-right"><span class="portal-state"><b aria-hidden="true"></b>PORTAL ACCESS</span><button
+        class="theme-toggle" id="themeToggle" type="button" aria-pressed="true" aria-label="Switch to light mode"><span
+          class="switch" aria-hidden="true"><i></i></span><span>DARK</span></button></div>
+  </header>
+  <main>
+    <section class="center" aria-labelledby="portal-title">
+      <p class="eyebrow">ADMIN &amp; WORKFORCE PORTAL</p>
+      <h1 id="portal-title">Choose your ListenPay workspace.</h1>
+      <p class="intro">A focused entry point for guidance, program value, and workforce training planning. Select a
+        workspace to continue.</p>
+      <div class="tiles">
+        <button class="tile login-trigger" type="button" data-destination="/workspace"
+          data-workspace="Workplace AI Guidance" aria-label="Log in to open Workplace AI Guidance"><span
+            class="tile-code">01 / ADMIN GUIDANCE</span><span class="glyph" aria-hidden="true">AI</span>
+          <h2>Workplace AI<br>Guidance</h2>
+          <p>Generate focused training and compliance-planning recommendations for the workforce signal in front of
+            you.</p><span class="enter">LOG IN TO OPEN WORKSPACE →</span>
+        </button>
+        <button class="tile programs" type="button" (click)="openPrograms()"
+          aria-label="Open Value Training and Compliance Programs"><span class="tile-code">02 / PROGRAM
+            VALUE</span><span class="glyph" aria-hidden="true">↗</span>
+          <h2>Value Training &amp;<br>Compliance Programs</h2>
+          <p>Review how ListenPay programs support capable teams, documented learning, and confident next steps.</p>
+          <span class="enter">VIEW PROGRAM VALUE →</span>
+        </button>
+      </div>
+      <div class="footer-logos" aria-label="Regulatory frameworks">
+        <img src="/logos/epa.png" alt="U.S. Environmental Protection Agency" />
+        <img src="/logos/hhs.png" alt="U.S. Department of Health &amp; Human Services" />
+        <img src="/logos/hipaa.png" alt="HIPAA" />
+        <img src="/logos/osha.png" alt="Occupational Safety and Health Administration" />
+        <img src="/logos/sec.png" alt="U.S. Securities and Exchange Commission" />
+      </div>
+    </section>
+  </main>
+  <footer>
+
+    <!-- <span>LISTENPAY GUIDANCE AI</span>
+      <nav class="footer-links" aria-label="Policy and support"><a href="/legal#privacy">Privacy Policy</a><a
+          href="/legal#terms">Terms of Service</a><a href="/legal#support">Support</a></nav><span>AUTHORIZED
+        WORKFORCE ACCESS</span> -->
+  </footer>
+</div>
+<dialog id="loginModal" aria-labelledby="loginTitle">
+  <div class="login-card"><button class="modal-close" id="closeLogin" type="button"
+      aria-label="Close login form">×</button>
+    <div class="modal-views">
+      <section class="modal-view is-active" id="loginView" aria-labelledby="loginTitle">
+        <p class="modal-kicker">LISTENPAY PORTAL ACCESS</p>
+        <h2 id="loginTitle">Sign in to continue.</h2>
+        <p class="modal-copy" id="loginCopy">Use your organization access details to continue to this workspace.</p>
+        <form class="login-form" id="loginForm" novalidate>
+          <div class="field"><label for="workEmail">Work email</label><input id="workEmail" name="workEmail"
+              type="email" autocomplete="email" aria-describedby="workEmailError" placeholder="you@organization.com"
+              required />
+            <p class="field-error" id="workEmailError" aria-live="polite"></p>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="role">Access role</label><select id="role" name="role" required disabled>
+                <option value="administrator">Administrator</option>
+                <option value="program-lead">Program lead</option>
+                <option value="manager">Manager</option>
+              </select></div>
+            <div class="field"><label for="accessCode">Access code</label><input id="accessCode" name="accessCode"
+                type="text" inputmode="numeric" autocomplete="one-time-code" aria-describedby="accessCodeError"
+                placeholder="Enter 6 digits" maxlength="6" pattern="[0-9]{6}" disabled />
+              <p class="field-error" id="accessCodeError" aria-live="polite"></p>
+            </div>
+          </div><label class="remember"><input id="policyAcknowledgement" type="checkbox" checked required />I
+            understand this
+            is an authorized workspace and agree to follow my organization’s policies.</label>
+          <p class="form-error" id="loginFormError" role="alert"></p>
+          <p class="login-status" id="loginStatus" role="status"><span class="button-spinner" id="verificationSpinner"
+              hidden aria-hidden="true"></span></p><button class="login-submit" id="loginSubmit" type="submit"><span
+              class="button-spinner" id="loginSpinner" hidden aria-hidden="true"></span><span
+              id="loginSubmitText">CONTINUE TO WORKSPACE →</span></button><button class="forgot-link"
+            id="forgotPassword" type="button">Forgot Password?</button>
+          <p class="login-note"><strong>Demo access form.</strong> Connect this form to your organization’s SSO or
+            identity provider before production use.</p>
+        </form>
+      </section>
+      <section class="modal-view recovery-view" id="recoveryView" aria-labelledby="recoveryTitle" aria-hidden="true">
+        <p class="modal-kicker">ACCOUNT RECOVERY</p>
+        <h2 id="recoveryTitle">Reset your access.</h2>
+        <p class="modal-copy">Enter your work email and we will show the next recovery step for this demo portal.</p>
+        <form class="login-form" id="recoveryForm" novalidate>
+          <div class="field"><label for="recoveryEmail">Work email</label><input id="recoveryEmail" type="email"
+              autocomplete="email" aria-describedby="recoveryEmailError" placeholder="you@organization.com" required />
+            <p class="field-error" id="recoveryEmailError" aria-live="polite"></p>
+          </div>
+          <p class="recovery-status" id="recoveryStatus" role="status"></p><button class="login-submit"
+            type="submit">SEND RECOVERY INSTRUCTIONS →</button><button class="forgot-link" id="backToLogin"
+            type="button">← Back to Login</button>
+          <p class="login-note"><strong>Demo recovery.</strong> Connect this step to your identity provider or secure
+            email service before production use.</p>
+        </form>
+      </section>
+    </div>
+  </div>
+</dialog>

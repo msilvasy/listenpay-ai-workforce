@@ -1,0 +1,27 @@
+<div class="shell">
+    <header><a class="back" routerLink="/programs">← PROGRAM VALUE</a><span class="brand"><img src="/logo.png" alt="ListenPay" style="width: 125px;"></span></header>
+    <main class="main">
+        <div class="eyebrow">INDUSTRIES / WORKFORCE SIGNALS</div>
+        <h1>Built for the teams that keep work moving.</h1>
+        <p class="intro">ListenPay adapts training and compliance signals to the realities of each workplace. Whether
+            your people are on a clinical floor, a plant floor, or a customer-facing team, guidance stays relevant and
+            action stays governed. Select an industry to continue.</p>
+        <section class="grid">
+            @for (industry of industries; track industry.id) {
+                <button class="item" type="button" (click)="select(industry)"
+                    [style.--tile-img]="'url(' + industry.image + ')'"
+                    [style.--tile-pos]="industry.imagePosition || 'center'"
+                    [attr.aria-label]="'Log in to open ' + industry.label + ' programs'">
+                    <img class="icon" [src]="industry.icon" alt="" aria-hidden="true">
+                    <b>{{ industry.code }} / {{ industry.label }}</b>
+                    <h2>{{ industry.title }}</h2>
+                    <p>{{ industry.copy }}</p>
+                    <span class="enter">LOG IN TO OPEN →</span>
+                </button>
+            }
+        </section>
+    </main>
+    <footer>LISTENPAY INDUSTRY PROGRAMS</footer>
+</div>
+
+<app-login-modal (verified)="onVerified()"></app-login-modal>

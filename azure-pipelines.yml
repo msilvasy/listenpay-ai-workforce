@@ -1,0 +1,68 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  name: ListenPaylocalAgent
+  demands:
+  - Agent.Name -equals ListenPaylocalAgent-Local
+
+steps:
+
+- task: NodeTool@0
+  displayName: 'Install Node.js 20'
+  inputs:
+    versionSpec: '20.x'
+
+- script: |
+    echo ========================================
+    echo Installing npm dependencies
+    echo ========================================
+    npm install --no-audit --no-fund
+
+    echo ========================================
+    echo Checking node_modules
+    echo ========================================
+    if exist node_modules (
+        echo node_modules exists
+    ) else (
+        echo ERROR: node_modules was not created
+        exit /b 1
+    )
+
+    echo ========================================
+    echo Angular build package
+    echo ========================================
+    npm ls @angular-devkit/build-angular
+
+  displayName: 'npm install'
+
+- script:
+    echo ========================================
+    echo Angular build started
+    echo ========================================
+
+    npm run build
+
+    echo ========================================
+    echo Angular build completed
+    echo ========================================
+
+  displayName: 'Angular build'
+- task: ArchiveFiles@2
+  displayName: 'Create deployment ZIP'
+  inputs:
+          rootFolderOrFile: '$(Build.SourcesDirectory)/dist/listenpay-angular/browser'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+          replaceExistingArchive: true
+- task: PublishPipelineArtifact@1 
+  displayName: 'Publish deployment ZIP'
+  inputs: 
+         targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+         artifact: 'angular-dist'

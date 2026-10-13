@@ -1,0 +1,316 @@
+:host {
+  display: contents;
+  color-scheme: dark;
+  --line: rgba(175, 192, 204, .18);
+  --muted: #9aa8b5;
+  --gold: #f0b638;
+  --teal: #48d1c1;
+  --copy: #f3f6f8;
+  --modal: #111a24;
+  --input: rgba(4, 9, 14, .72);
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Styles below mirror the portal login modal in pages/login/login.component.css */
+dialog {
+  width: min(100% - 32px, 540px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgba(240, 182, 56, .46);
+  border-radius: 18px;
+  background: var(--modal);
+  color: var(--copy);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .52);
+  transition: background 380ms ease, color 380ms ease;
+}
+
+dialog::backdrop {
+  background: rgba(2, 6, 11, .76);
+  backdrop-filter: blur(5px);
+}
+
+.login-card {
+  position: relative;
+  padding: 31px;
+}
+
+.modal-close {
+  position: absolute;
+  /* Keep above .modal-view, whose transform creates a stacking context that otherwise covers this button. */
+  z-index: 2;
+  top: 17px;
+  right: 17px;
+  width: 31px;
+  height: 31px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--copy);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.modal-kicker {
+  margin: 0;
+  color: var(--gold);
+  font: 500 10px 'DM Mono', monospace;
+  letter-spacing: .13em;
+}
+
+.login-card h2 {
+  margin: 10px 40px 6px 0;
+  font: 600 31px/1.04 Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+}
+
+.modal-copy {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+.login-form {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field label {
+  color: var(--muted);
+  font: 500 9px 'DM Mono', monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  background: var(--input);
+  color: var(--copy);
+  padding: 0 12px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 380ms ease, color 380ms ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(240, 182, 56, .13);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.remember {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.remember input {
+  accent-color: var(--gold);
+  margin-top: 2px;
+}
+
+.login-submit {
+  min-height: 43px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #f4ca65, #d69523);
+  color: #12100a;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: .04em;
+  transition: transform 160ms cubic-bezier(.23, 1, .32, 1), filter 160ms ease;
+}
+
+.login-submit:hover,
+.login-submit:focus-visible {
+  filter: brightness(1.05);
+  outline: none;
+}
+
+.login-submit:active {
+  transform: scale(.98);
+}
+
+.login-note {
+  margin: 1px 0 0;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.login-note strong {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.modal-views {
+  display: grid;
+  overflow: hidden;
+}
+
+.modal-view {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 220ms ease, transform 240ms cubic-bezier(.23, 1, .32, 1), visibility 0s linear 240ms;
+}
+
+.modal-view.is-active {
+  position: relative;
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+
+.field-error,
+.form-error,
+.recovery-status,
+.login-status {
+  min-height: 15px;
+  margin: -1px 0 0;
+  color: #e9847d;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.field input.has-error {
+  border-color: #e9847d;
+  box-shadow: 0 0 0 3px rgba(233, 132, 125, .12);
+}
+
+.form-error {
+  margin-top: -3px;
+}
+
+.forgot-link {
+  justify-self: start;
+  margin-top: -2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.forgot-link:hover,
+.forgot-link:focus-visible {
+  color: var(--teal);
+  outline: none;
+}
+
+.recovery-status,
+.login-status {
+  min-height: 30px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.recovery-view .modal-copy {
+  max-width: 410px;
+}
+
+.login-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.login-submit[disabled] {
+  cursor: wait;
+  opacity: .72;
+}
+
+.button-spinner {
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(18, 16, 10, .3);
+  border-top-color: #12100a;
+  border-radius: 50%;
+  animation: login-spin .7s linear infinite;
+}
+
+.button-spinner[hidden] {
+  display: none;
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.login-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-status .button-spinner {
+  border-color: rgba(72, 209, 193, .3);
+  border-top-color: var(--teal);
+}
+
+@media (min-width: 721px) {
+  .form-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .form-row .field {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .login-card {
+    padding: 27px 22px 23px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

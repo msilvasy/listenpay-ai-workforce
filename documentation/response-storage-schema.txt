@@ -1,0 +1,38 @@
+{
+  "id": "ff81c86c-ec82-4187-a26c-222d8ac3198b",
+  "program": "Health & Wellness",
+  "prompt": "Build a short refresher plan for supervisors after a rise in near-miss reports.",
+  "guidance": {
+    "priority": "Reduce repeat near misses by strengthening hazard recognition, reporting, and supervisor follow-through.",
+    "firstStep": "Within 24 hours, review the recent near-miss reports with supervisors, identify common contributing factors, and assign immediate controls for any unresolved high-risk hazards.",
+    "modules": [
+      "Near-miss reporting: timely, factual, and non-punitive documentation",
+      "Job hazard analysis, pre-task briefings, and stop-work authority",
+      "Effective field observations, coaching, and corrective-action verification",
+      "Incident escalation, emergency response, and lessons-learned communication"
+    ],
+    "compliance": "Align refresher activities with applicable occupational safety regulations, required training records, reporting and investigation procedures, risk assessments, and documented corrective-action closure.",
+    "note": "Hold a brief supervisor refresher this week, conduct weekly follow-up audits for 30 days, and track repeat hazards, overdue actions, and reporting quality."
+  },
+  "createdAt": "2026-09-24T08:51:49.181Z"
+}
+
+
+{
+  "id": "ff81c86c-ec82-4187-a26c-222d8ac3198b",
+  "program": "Health & Wellness",
+  "prompt": "Build a short refresher plan for supervisors after a rise in near-miss reports.",
+  "guidance": {
+    "priority": "Reduce repeat near misses by strengthening hazard recognition, reporting, and supervisor follow-through.",
+    "firstStep": "Within 24 hours, review the recent near-miss reports with supervisors, identify common contributing factors, and assign immediate controls for any unresolved high-risk hazards.",
+    "modules": [
+      "Near-miss reporting: timely, factual, and non-punitive documentation",
+      "Job hazard analysis, pre-task briefings, and stop-work authority",
+      "Effective field observations, coaching, and corrective-action verification",
+      "Incident escalation, emergency response, and lessons-learned communication"
+    ],
+    "compliance": "Align refresher activities with applicable occupational safety regulations, required training records, reporting and investigation procedures, risk assessments, and documented corrective-action closure.",
+    "note": "Hold a brief supervisor refresher this week, conduct weekly follow-up audits for 30 days, and track repeat hazards, overdue actions, and reporting quality."
+  },
+  "createdAt": "2026-09-24T08:51:49.181Z"
+}

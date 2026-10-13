@@ -1,0 +1,483 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  --ink: #06080e;
+  --panel: #10151e;
+  --panel-2: #161c28;
+  --line: rgba(220, 229, 236, .15);
+  --muted: #9aaaba;
+  --text: #eef2f6;
+  --gold: #d8a13b;
+  --gold-light: #f0c35e;
+  --good: #4fd0a0;
+  background: radial-gradient(900px 520px at 50% -170px, rgba(42, 94, 128, .32), transparent 67%), var(--ink);
+  color: var(--text);
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 89px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.back-link {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.back-link:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+.intro {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: var(--gold-light);
+  font: 12px/1 monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.intro h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.12;
+}
+
+.intro h1 em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.documents-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.documents-sidebar {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.sidebar-title {
+  margin: 0 0 14px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+
+.document-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+}
+
+.document-item:hover {
+  border-color: var(--gold);
+}
+
+.document-item.is-active {
+  border-color: var(--gold);
+  background: rgba(216, 161, 59, .12);
+}
+
+.document-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.document-icon svg {
+  width: 28px;
+  height: 32px;
+  display: block;
+}
+
+.document-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.document-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.document-status {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.document-status.is-pending {
+  color: var(--gold-light);
+  background: rgba(216, 161, 59, .16);
+}
+
+.document-status.is-signed {
+  color: var(--good);
+  background: rgba(79, 208, 160, .16);
+}
+
+.sidebar-note {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.signing-area {
+  min-height: 420px;
+}
+
+.empty-state {
+  height: 100%;
+  /* min-height: 420px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.empty-icon {
+  font-size: 34px;
+}
+
+.signing-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signing-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.signing-panel-header h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.signing-doc-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 46ch;
+}
+
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: var(--text);
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ghost-button:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.ghost-button.small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.document-preview {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0f16;
+}
+
+.document-preview iframe {
+  width: 100%;
+  height: 460px;
+  border: 0;
+  display: block;
+}
+
+.signed-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(79, 208, 160, .12);
+  border: 1px solid rgba(79, 208, 160, .4);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.signed-icon {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--good);
+  color: #06110d;
+  font-weight: 700;
+}
+
+.signed-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.signed-meta {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.signed-banner .ghost-button {
+  margin-left: auto;
+}
+
+.signature-section {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.signature-section h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 360px;
+}
+
+.field label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field input[type="text"] {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+}
+
+.field input[type="text"]:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.signature-tabs {
+  display: inline-flex;
+  gap: 6px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.tab {
+  background: none;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tab.is-active {
+  background: var(--gold);
+  color: #201404;
+  font-weight: 600;
+}
+
+.signature-pad-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.signature-pad {
+  width: 100%;
+  max-width: 480px;
+  height: 160px;
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  touch-action: none;
+}
+
+.typed-signature-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.typed-signature-preview {
+  margin: 0;
+  max-width: 480px;
+  padding: 20px 18px;
+  background: #0b0f16;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.field-hint {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.5;
+}
+
+.agreement input {
+  margin-top: 3px;
+}
+
+.sign-status {
+  margin: 0;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--gold-light);
+}
+
+.sign-button {
+  align-self: flex-start;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  color: #201404;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.sign-button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+  .documents-layout {
+    grid-template-columns: 1fr;
+  }
+}

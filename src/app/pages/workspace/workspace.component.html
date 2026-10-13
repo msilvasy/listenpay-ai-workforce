@@ -1,0 +1,267 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="brand" aria-label="ListenPay">
+      <!-- <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <p class="earn">Earn</p>
+        <p class="brand-name">ListenPay<sup>®</sup></p>
+      </div> -->
+      <a href="/"><img src="/tiles/logo.png" width="150" /></a>
+    </div>
+    <div class="top-actions">
+      <div class="workspace-status"><span class="status-dot"></span> Guidance workspace</div>
+      <button class="history-trigger" id="historyButton" type="button" aria-controls="historyPanel"
+        aria-expanded="false"><span aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-rotate-ccw-clock">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+            <path d="M12 7v5l4 2" />
+          </svg>
+        </span><span>History</span></button>
+    </div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="pageTitle">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Program signal</p>
+      <h1 id="pageTitle">Focus the next<br /><em>workforce move.</em></h1>
+      <p>Select the program your team is working in, then turn a live training or compliance need into a focused next
+        step.</p>
+    </section>
+    <section class="tiles" aria-label="ListenPay program selection">
+      <button class="tile health selected" type="button" data-program="Health & Wellness" aria-pressed="true">
+        <span class="shade"></span>
+        <span class="check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span>
+        <span class="tile-body">
+          <span class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-stethoscope">
+              <path d="M11 2v2" />
+              <path d="M5 2v2" />
+              <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
+              <path d="M8 15a6 6 0 0 0 12 0v-3" />
+              <circle cx="20" cy="10" r="2" />
+            </svg>
+          </span>
+          <span>
+            <span class="tile-title">Health &amp; Wellness</span>
+            <span class="tile-subtitle">Medical &amp; Healthcare</span>
+          </span>
+        </span>
+      </button>
+      <button class="tile safety" type="button" data-program="Safety & Training" aria-pressed="false">
+        <span class="shade"></span><span class="check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span>
+        <span class="tile-body">
+          <span class="tile-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-clipboard-check">
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+              <path d="m9 14 2 2 4-4" />
+            </svg></span><span><span class="tile-title">Safety &amp; Training</span>
+            <span class="tile-subtitle">Assessments &amp; aptitude</span>
+          </span>
+        </span>
+      </button>
+      <button class="tile compliance" type="button" data-program="Compliance" aria-pressed="false">
+        <span class="shade"></span>
+        <span class="check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span><span class="tile-body"><span class="tile-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="lucide lucide-shield-check">
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg></span>
+          <span>
+            <span class="tile-title">Compliance</span><span class="tile-subtitle">Governance &amp; Regulatory
+            </span>
+          </span>
+        </span>
+      </button>
+      <button class="tile documents" type="button" data-program="Secure Documents" aria-pressed="false">
+        <span class="shade"></span>
+        <span class="check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span><span class="tile-body"><span class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-file-lock">
+              <path
+                d="M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3" />
+              <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+              <path d="M9 17v-2a2 2 0 0 0-4 0v2" />
+              <rect width="8" height="5" x="3" y="17" rx="1" />
+            </svg>
+          </span><span><span class="tile-title">Secure Documents</span><span class="tile-subtitle">Electronic
+              signing</span></span></span></button>
+      <button class="tile trades" type="button" data-program="Skilled Trades" aria-pressed="false">
+        <span class="shade"></span>
+        <span class="check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </span>
+        <span class="tile-body">
+          <span class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-wrench">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+            </svg>
+          </span>
+          <span>
+            <span class="tile-title">Skilled Trades</span><span class="tile-subtitle">Commercial
+              &amp; industrial</span>
+          </span>
+        </span>
+      </button>
+      <button class="tile logistics" type="button" data-program="Logistics" aria-pressed="false">
+        <span class="shade">
+        </span>
+        <span class="check" aria-hidden="true"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="lucide lucide-shield-check">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg></span>
+        <span class="tile-body">
+          <span class="tile-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-truck">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+              <path d="M15 18H9" />
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+              <circle cx="17" cy="18" r="2" />
+              <circle cx="7" cy="18" r="2" />
+            </svg>
+          </span>
+          <span>
+            <span class="tile-title">Logistics</span>
+            <span class="tile-subtitle">Transport &amp;
+              distribution</span>
+          </span>
+        </span>
+      </button>
+    </section>
+    <section class="dock" aria-labelledby="guidanceTitle">
+      <div class="dock-head"><span class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div>
+          <p class="eyebrow">ListenPay Guidance AI</p>
+          <h2 id="guidanceTitle">What should your team focus on next?</h2>
+        </div><span class="selected-pill"><i></i><span id="selectedProgram">Health &amp; Wellness</span></span>
+      </div>
+      <form class="form" id="guidanceForm" novalidate>
+        <label class="hidden" for="guidancePrompt">Describe the training or compliance need</label>
+        <textarea id="guidancePrompt" maxlength="800" rows="3"
+          placeholder="Describe a training need, policy concern, or observed engagement signal…"></textarea>
+        <div class="form-bottom">
+          <p><span class="spark" aria-hidden="true">✧</span> Educational guidance, not a compliance determination.</p>
+          <button class="generate" id="generateButton" type="submit"><span>Generate guidance</span><span
+              aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+      <p class="inline-error hidden" id="inlineError" role="alert"></p>
+      <div class="suggestions" id="signalSuggestions" aria-label="Suggested prompts" aria-busy="true">
+        <span>Try a recommended signal</span>
+        <div class="signal-list" id="signalList" aria-live="polite">
+          <span class="signal-skeleton" aria-hidden="true"></span>
+          <span class="signal-skeleton" aria-hidden="true"></span>
+          <span class="signal-skeleton" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><span>Listen. Learn. Advance.</span><span>Training planning workspace</span></footer>
+</div>
+<dialog id="guidanceModal" aria-labelledby="recommendationPriority">
+  <div class="modal-body">
+    <button class="modal-close" id="closeGuidanceModal" type="button" aria-label="Close guidance">×</button>
+    <p class="modal-kicker">LISTENPAY GUIDANCE AI</p>
+    <div class="generation-status hidden" id="generationStatus" role="status"><span class="inline-spinner"
+        aria-hidden="true"></span><span>ListenPay Guidance AI is preparing your tailored next steps…</span></div>
+    <article class="recommendation hidden" id="recommendationPanel" aria-live="polite">
+      <div class="recommendation-head">
+        <div class="recommendation-actions"><span class="ready">✓ Ready to review</span><button
+            class="export-pdf regenerate-guidance" id="regenerateRecommendation" type="button"
+            aria-label="Regenerate recommendation">↻ Regenerate</button><button class="export-pdf copy-guidance"
+            id="copyCurrent" type="button" aria-label="Copy current recommendation">⧉ Copy</button><button
+            class="export-pdf" id="exportPdf" type="button">↓ Export PDF</button></div>
+        <div>
+          <p class="eyebrow">Recommended focus</p>
+          <h3 id="recommendationPriority"></h3>
+        </div>
+      </div>
+      <div class="recommendation-grid">
+        <section>
+          <p class="result-label">Start here</p>
+          <p id="recommendationStep"></p>
+        </section>
+        <section>
+          <p class="result-label">Training modules</p>
+          <ul class="modules" id="recommendationModules"></ul>
+        </section>
+        <section>
+          <p class="result-label">Compliance lens</p>
+          <p id="recommendationCompliance"></p>
+        </section>
+      </div>
+      <p class="note" id="recommendationNote"></p>
+    </article>
+  </div>
+</dialog>
+<div class="overlay" id="overlay"></div>
+<aside class="history-panel" id="historyPanel" aria-label="Recommendation history" aria-hidden="true">
+  <button class="close-history" id="closeHistory" type="button" aria-label="Close history">×</button>
+  <div class="history-panel-head">
+    <p class="history-eyebrow">Your guidance archive</p>
+    <h2>Recommendation history</h2>
+    <p>Open a previous guidance item to continue planning from where you left off.</p>
+    <div class="history-panel-actions"><span id="historySourceLabel">Stored on this device</span><button class="clear-history" id="clearHistory"
+        type="button">Clear history</button></div>
+  </div>
+  <div class="history-search" role="search"><span aria-hidden="true">⌕</span>
+    <!-- <label class="sr-only" for="historySearch">Search recommendation history</label> -->
+    <input id="historySearch" type="search" placeholder="Search past guidance" autocomplete="off" /><button
+      class="history-search-clear hidden" id="clearHistorySearch" type="button"
+      aria-label="Clear history search">×</button>
+  </div>
+  <div class="history-list" id="historyList"></div>
+</aside>

@@ -1,0 +1,7 @@
+# Rename this file to .env, then replace the example values.
+# Keep your .env file private and do not commit it to source control.
+
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Optional: defaults to gpt-4o-mini when omitted.
+OPENAI_MODEL=gpt-4o-mini

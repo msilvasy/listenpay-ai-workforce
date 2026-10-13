@@ -1,0 +1,5 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { -webkit-font-smoothing: antialiased; }
+/* Component rules like `display: flex` would otherwise override the hidden attribute set from code. */
+[hidden] { display: none !important; }
